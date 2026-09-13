@@ -1,0 +1,80 @@
+.auth-wrapper {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 40px 20px 32px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-hero {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.auth-heart {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--recipe-accent-pink), var(--recipe-primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--recipe-shadow-medium);
+
+  ion-icon {
+    font-size: 1.8rem;
+    color: #ffffff;
+  }
+}
+
+.auth-title {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--recipe-primary-dark);
+  margin: 0;
+}
+
+.auth-subtitle {
+  color: var(--recipe-text-secondary);
+  font-size: 0.9rem;
+  margin: 6px 0 0;
+}
+
+.auth-card {
+  padding: 28px 22px 24px;
+}
+
+.auth-form-title {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--recipe-text);
+  margin: 0 0 4px;
+}
+
+.auth-form-subtitle {
+  color: var(--recipe-text-secondary);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+ion-button {
+  margin-top: 26px;
+}
+
+.auth-switch {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--recipe-text-secondary);
+  margin-top: 18px;
+
+  a {
+    color: var(--recipe-primary);
+    font-weight: 600;
+    text-decoration: none;
+  }
+}

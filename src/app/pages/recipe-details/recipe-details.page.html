@@ -1,0 +1,79 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="pink-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      @if (recipe(); as r) {
+        <ion-button [routerLink]="['/edit-recipe', r.id]" aria-label="Edit recipe">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button color="danger" (click)="deleteRecipe()" aria-label="Delete recipe">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+      }
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-content">
+  <div class="hero-header">
+    <h1 class="hero-title">♡ Recipe Details</h1>
+  </div>
+
+  <div class="content-wrapper">
+    @if (isLoading()) {
+      <div class="loading-state">
+        <ion-spinner name="crescent"></ion-spinner>
+        <p>♡ Loading your recipe...</p>
+      </div>
+    } @else if (hasError()) {
+      <div class="empty-state">
+        <div class="empty-state-icon">😔</div>
+        <h2 class="empty-state-title">Something went wrong</h2>
+        <p class="empty-state-text">Please try again in a moment.</p>
+      </div>
+    } @else if (notFound()) {
+      <div class="empty-state">
+        <div class="empty-state-icon">🔍</div>
+        <h2 class="empty-state-title">Recipe not found</h2>
+        <p class="empty-state-text">This recipe may have been removed.</p>
+      </div>
+    } @else if (recipe(); as r) {
+      <h1 class="recipe-name">{{ r.name }}</h1>
+      <div class="recipe-meta">
+        <span class="pink-badge">{{ r.category }}</span>
+        <span class="recipe-time">
+          <ion-icon name="time-outline"></ion-icon>
+          {{ r.preparationTime }} minutes
+        </span>
+      </div>
+
+      <div class="recipe-icon-banner">{{ getCategoryIcon(r.category) }}</div>
+
+      <section class="soft-card detail-section">
+        <h2 class="detail-heading">♡ Ingredients</h2>
+        <ul class="ingredient-list">
+          @for (ingredient of r.ingredients; track ingredient) {
+            <li>
+              <ion-icon name="checkmark-circle"></ion-icon>
+              <span>{{ ingredient }}</span>
+            </li>
+          }
+        </ul>
+      </section>
+
+      <section class="soft-card detail-section">
+        <h2 class="detail-heading">♡ How to Make It</h2>
+        <ol class="step-list">
+          @for (step of instructionSteps(r); track $index) {
+            <li>
+              <span class="step-number">{{ ($index + 1) | number: '2.0-0' }}</span>
+              <span class="step-text">{{ step }}</span>
+            </li>
+          }
+        </ol>
+      </section>
+    }
+  </div>
+</ion-content>

@@ -1,0 +1,64 @@
+<ion-content class="page-content" [fullscreen]="true">
+  <div class="auth-wrapper">
+    <div class="auth-hero">
+      <div class="auth-heart"><ion-icon name="heart"></ion-icon></div>
+      <h1 class="auth-title">My Recipe Collection</h1>
+      <p class="auth-subtitle">Delicious recipes, made with love.</p>
+    </div>
+
+    <form class="auth-card soft-card" [formGroup]="form" (ngSubmit)="login()">
+      <h2 class="auth-form-title">Welcome back ♡</h2>
+      <p class="auth-form-subtitle">Sign in to your recipe journal.</p>
+
+      <span class="field-label">Email</span>
+      <ion-input
+        class="pink-input"
+        [class.has-error]="email.invalid && email.touched"
+        type="email"
+        formControlName="email"
+        placeholder="you@example.com"
+        autocomplete="email"
+        inputmode="email"
+      >
+        <ion-icon slot="start" name="mail-outline" aria-hidden="true"></ion-icon>
+      </ion-input>
+      @if (email.invalid && email.touched) {
+        <p class="field-error">
+          @if (email.hasError('required')) { Email is required. }
+          @else if (email.hasError('email')) { Please enter a valid email address. }
+        </p>
+      }
+
+      <span class="field-label">Password</span>
+      <ion-input
+        class="pink-input"
+        [class.has-error]="password.invalid && password.touched"
+        type="password"
+        formControlName="password"
+        placeholder="Your password"
+        autocomplete="current-password"
+      >
+        <ion-icon slot="start" name="lock-closed-outline" aria-hidden="true"></ion-icon>
+      </ion-input>
+      @if (password.invalid && password.touched) {
+        <p class="field-error">
+          @if (password.hasError('required')) { Password is required. }
+          @else if (password.hasError('minlength')) { Password must be at least 6 characters. }
+        </p>
+      }
+
+      <ion-button class="btn-primary-pink" expand="block" type="submit" [disabled]="isSubmitting">
+        @if (isSubmitting) {
+          <ion-spinner name="dots"></ion-spinner>
+        } @else {
+          ♡ Login
+        }
+      </ion-button>
+
+      <p class="auth-switch">
+        Don't have an account?
+        <a routerLink="/register">Create one</a>
+      </p>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,104 @@
+<ion-content class="page-content" [fullscreen]="true">
+  <div class="hero-header home-hero">
+    <ion-button fill="clear" class="logout-btn" (click)="logout()" aria-label="Log out">
+      <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+    </ion-button>
+    <h1 class="hero-title">♡ My Recipe Collection</h1>
+    <p class="hero-subtitle">Delicious recipes, made with love ♡</p>
+  </div>
+
+  <div class="content-wrapper">
+    <ion-searchbar
+      class="pink-searchbar"
+      placeholder="Search your recipes..."
+      [debounce]="150"
+      (ionInput)="onSearchChange($event.detail.value)"
+      inputmode="search"
+    ></ion-searchbar>
+
+    <div class="category-scroller">
+      @for (category of categories; track category) {
+        <ion-chip
+          class="category-chip"
+          [class.selected]="selectedCategory() === category"
+          (click)="selectCategory(category)"
+        >
+          {{ category }}
+        </ion-chip>
+      }
+    </div>
+
+    @if (isLoading()) {
+      <div class="loading-state">
+        <ion-spinner name="crescent"></ion-spinner>
+        <p>♡ Loading your recipes...</p>
+      </div>
+    } @else if (hasError()) {
+      <div class="empty-state">
+        <div class="empty-state-icon">😔</div>
+        <h2 class="empty-state-title">Something went wrong</h2>
+        <p class="empty-state-text">
+          Something went wrong while loading your recipes.<br />Please try again.
+        </p>
+      </div>
+    } @else if (!hasAnyRecipes()) {
+      <div class="empty-state">
+        <div class="empty-state-icon">🧁</div>
+        <h2 class="empty-state-title">No recipes yet ♡</h2>
+        <p class="empty-state-text">
+          Start your recipe collection<br />and save something delicious!
+        </p>
+        <ion-button class="btn-primary-pink" routerLink="/add-recipe">
+          <ion-icon slot="start" name="add"></ion-icon>
+          Add Recipe
+        </ion-button>
+      </div>
+    } @else if (filteredRecipes().length === 0) {
+      <div class="empty-state">
+        <div class="empty-state-icon">🔍</div>
+        <h2 class="empty-state-title">No matches found</h2>
+        <p class="empty-state-text">Try a different search term or category.</p>
+      </div>
+    } @else {
+      <div class="recipe-grid">
+        @for (recipe of filteredRecipes(); track recipe.id) {
+          <div class="recipe-card soft-card" [routerLink]="['/recipe', recipe.id]">
+            <div class="recipe-card-icon">{{ getCategoryIcon(recipe.category) }}</div>
+            <div class="recipe-card-body">
+              <h3 class="recipe-card-name">{{ recipe.name }}</h3>
+              <span class="pink-badge">{{ recipe.category }}</span>
+              <p class="recipe-card-ingredients">♡ {{ ingredientsPreview(recipe) }}</p>
+              <p class="recipe-card-time">
+                <ion-icon name="time-outline"></ion-icon>
+                {{ recipe.preparationTime }} minutes
+              </p>
+              <div class="recipe-card-actions">
+                <ion-button class="view-btn" fill="clear" size="small" [routerLink]="['/recipe', recipe.id]">
+                  View Recipe
+                </ion-button>
+                <ion-button fill="clear" size="small" (click)="editRecipe($event, recipe.id)" aria-label="Edit recipe">
+                  <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+                </ion-button>
+                <ion-button
+                  fill="clear"
+                  size="small"
+                  color="danger"
+                  (click)="deleteRecipe($event, recipe)"
+                  aria-label="Delete recipe"
+                >
+                  <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+                </ion-button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="add-fab" routerLink="/add-recipe" aria-label="Add recipe">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,117 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="pink-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-content">
+  <div class="hero-header">
+    <h1 class="hero-title">♡ Add New Recipe</h1>
+    <p class="hero-subtitle">Create something delicious!</p>
+  </div>
+
+  <form class="form-wrapper" [formGroup]="form" (ngSubmit)="save()">
+    <span class="field-label">Recipe Name</span>
+    <ion-input
+      class="pink-input"
+      [class.has-error]="name.invalid && name.touched"
+      formControlName="name"
+      placeholder="e.g. Strawberry Pancakes"
+    ></ion-input>
+    @if (name.invalid && name.touched) {
+      <p class="field-error">
+        @if (name.hasError('required')) { Recipe name is required. }
+        @else if (name.hasError('minlength')) { Recipe name must be at least 2 characters. }
+      </p>
+    }
+
+    <span class="field-label">Category</span>
+    <ion-select
+      class="pink-input"
+      [class.has-error]="category.invalid && category.touched"
+      formControlName="category"
+      placeholder="Select a category"
+      interface="popover"
+      (ionBlur)="category.markAsTouched()"
+    >
+      @for (cat of categories; track cat) {
+        <ion-select-option [value]="cat">{{ cat }}</ion-select-option>
+      }
+    </ion-select>
+    @if (category.invalid && category.touched) {
+      <p class="field-error">Please select a category.</p>
+    }
+
+    <span class="field-label">Ingredients</span>
+    <ion-textarea
+      class="pink-input"
+      [class.has-error]="ingredients.invalid && ingredients.touched"
+      formControlName="ingredients"
+      [autoGrow]="true"
+      rows="6"
+      placeholder="Enter ingredients, one per line...
+
+Example:
+1 cup flour
+2 eggs
+1 cup milk
+1 tablespoon sugar
+Fresh strawberries"
+    ></ion-textarea>
+    @if (ingredients.invalid && ingredients.touched) {
+      <p class="field-error">Please enter at least one ingredient.</p>
+    }
+
+    <span class="field-label">Instructions</span>
+    <ion-textarea
+      class="pink-input"
+      [class.has-error]="instructions.invalid && instructions.touched"
+      formControlName="instructions"
+      [autoGrow]="true"
+      rows="6"
+      placeholder="Write your cooking instructions step by step...
+
+Example:
+1. Mix the flour and eggs.
+2. Add the milk.
+3. Heat the pan.
+4. Cook until golden brown."
+    ></ion-textarea>
+    @if (instructions.invalid && instructions.touched) {
+      <p class="field-error">Instructions are required.</p>
+    }
+
+    <span class="field-label">Preparation Time (minutes)</span>
+    <ion-input
+      class="pink-input"
+      [class.has-error]="preparationTime.invalid && preparationTime.touched"
+      type="number"
+      inputmode="numeric"
+      min="1"
+      formControlName="preparationTime"
+      placeholder="e.g. 30"
+    >
+      <ion-icon slot="start" name="time-outline" aria-hidden="true"></ion-icon>
+    </ion-input>
+    @if (preparationTime.invalid && preparationTime.touched) {
+      <p class="field-error">
+        @if (preparationTime.hasError('required')) { Preparation time is required. }
+        @else if (preparationTime.hasError('min')) { Preparation time must be greater than 0. }
+      </p>
+    }
+
+    <ion-button class="btn-primary-pink" expand="block" type="submit" [disabled]="isSubmitting">
+      @if (isSubmitting) {
+        <ion-spinner name="dots"></ion-spinner>
+      } @else {
+        ♡ Save Recipe
+      }
+    </ion-button>
+
+    <ion-button class="btn-secondary-pink" expand="block" fill="clear" routerLink="/home" type="button">
+      Cancel
+    </ion-button>
+  </form>
+</ion-content>

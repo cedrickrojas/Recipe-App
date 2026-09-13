@@ -1,0 +1,58 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /recipes/{recipeId} {
+      // Only signed-in users may read/write, and only their own recipes.
+      allow read: if isSignedIn() && isOwner(resource.data.userId);
+
+      // On create there is no existing document yet, so check the
+      // incoming data's userId against the caller's uid instead.
+      allow create: if isSignedIn()
+                    && isOwner(request.resource.data.userId)
+                    && hasValidRecipeShape(request.resource.data);
+
+      // Updates may not change the recipe's owner.
+      allow update: if isSignedIn()
+                    && isOwner(resource.data.userId)
+                    && isOwner(request.resource.data.userId)
+                    && hasValidRecipeShape(request.resource.data);
+
+      allow delete: if isSignedIn() && isOwner(resource.data.userId);
+    }
+
+    // One profile document per Firebase Auth account, created on registration.
+    // A user may only ever read/write their own profile, keyed by their uid.
+    match /users/{userId} {
+      allow read: if isSignedIn() && isOwner(userId);
+
+      allow create: if isSignedIn()
+                    && isOwner(userId)
+                    && request.resource.data.uid == userId
+                    && request.resource.data.email is string;
+
+      allow update: if isSignedIn()
+                    && isOwner(userId)
+                    && request.resource.data.uid == userId;
+
+      allow delete: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    function hasValidRecipeShape(data) {
+      return data.name is string && data.name.size() > 0
+        && data.category is string && data.category.size() > 0
+        && data.ingredients is list && data.ingredients.size() > 0
+        && data.instructions is string && data.instructions.size() > 0
+        && data.preparationTime is number && data.preparationTime > 0;
+    }
+  }
+}
