@@ -1,0 +1,33 @@
+      <section class="hero shell" aria-labelledby="hero-heading">
+        <div class="hero-copy">
+          <p class="eyebrow"><span aria-hidden="true">✳</span> A LITTLE SPACE FOR THE FOOD YOU LOVE</p>
+          <h1 id="hero-heading">Good food.<br />Sweet memories.<br /><em>All in one place.</em></h1>
+          <p class="hero-description">Grandma’s secret sauce. Your go-to weeknight dinner. That cake everyone asks for. Give your favorite recipes a place to call home.</p>
+          <div class="hero-actions">
+            <a class="button" routerLink="/register">Create my recipe collection <span aria-hidden="true">↗</span></a>
+            <button class="text-button" type="button" (click)="sectionRequested.emit('how-it-works')"><span class="play-icon" aria-hidden="true">▷</span> See how it works</button>
+          </div>
+          <p class="hero-note"><span aria-hidden="true">✓</span> Your recipes. Your own little collection.</p>
+        </div>
+        <div class="hero-art" aria-label="A recipe scrapbook with pancakes, pesto pasta, and homemade cookies">
+          <div class="art-circle"></div>
+          <span class="handwritten art-note">a pinch of love,<br />a lifetime of favorites <span aria-hidden="true">⤵</span></span>
+          <div class="photo-card pancake-card">
+            <span class="tape" aria-hidden="true"></span>
+            <img src="assets/landing/pancakes.jpg" alt="Golden pancakes topped with berries" width="850" height="567" fetchpriority="high" />
+            <div class="photo-caption"><span>Slow Sunday pancakes</span><span class="pink-heart" aria-hidden="true">♡</span></div>
+            <span class="photo-meta">Breakfast <span>·</span> 20 min <span>·</span> Made with love</span>
+          </div>
+          <div class="photo-card pasta-card">
+            <img src="assets/landing/pasta.jpg" alt="Fresh basil pesto pasta with cherry tomatoes" width="850" height="567" />
+            <div class="photo-caption"><span>Weeknight favorites</span><span class="pink-heart" aria-hidden="true">♡</span></div>
+          </div>
+          <div class="photo-card cookie-card">
+            <img src="assets/landing/cookies.jpg" alt="Homemade chocolate chip cookies" width="850" height="567" />
+            <div class="photo-caption"><span>A little something sweet</span></div>
+          </div>
+          <span class="favorite-sticker"><span aria-hidden="true">♡</span> KEEP THE<br />GOOD STUFF</span>
+          <span class="art-sparkle" aria-hidden="true">✧</span>
+          <span class="sample-label">A little inspiration for your collection</span>
+        </div>
+      </section>

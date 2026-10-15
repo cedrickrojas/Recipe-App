@@ -1,0 +1,15 @@
+      <section id="a-taste" class="recipe-section section-space" aria-labelledby="recipes-heading">
+        <div class="shell">
+          <div class="recipe-section-heading"><div><p class="eyebrow">A TASTE OF WHAT’S POSSIBLE</p><h2 id="recipes-heading">A collection that feels <em>like you.</em></h2></div><p>Weeknight wins. Weekend treats.<br />Every recipe has a story.</p></div>
+          <div class="collection-toolbar"><div class="category-tabs" aria-label="Filter sample recipes">@for (category of categories; track category) {<button type="button" [class.active]="selectedCategory() === category" [attr.aria-pressed]="selectedCategory() === category" (click)="selectedCategory.set(category)">{{ category }}</button>}</div><span class="demo-note">SAMPLE COLLECTION <span aria-hidden="true">↙</span></span></div>
+          <div class="sample-grid" aria-live="polite">
+            @for (recipe of filteredRecipes(); track recipe.name) {
+              <button class="sample-card" type="button" (click)="recipeSelected.emit(recipe)" [attr.aria-label]="'View sample recipe: ' + recipe.name">
+                <div class="sample-image"><img [src]="'assets/landing/' + recipe.image + '.jpg'" [alt]="recipe.name" width="850" height="567" loading="lazy" /><span class="sample-heart" aria-hidden="true">♡</span></div>
+                <div class="sample-body"><div class="recipe-meta"><span>{{ recipe.category }}</span><span>◷ {{ recipe.time }} min</span></div><h3>{{ recipe.name }}</h3><span class="recipe-open">A little everyday delicious <span aria-hidden="true">↗</span></span></div>
+              </button>
+            }
+          </div>
+          <p class="collection-note">These are just a few ideas. Your collection starts with <a routerLink="/register">your first favorite <span aria-hidden="true">→</span></a></p>
+        </div>
+      </section>

@@ -35,11 +35,11 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
     pathMatch: 'full',
+    loadComponent: () => import('./pages/landing/landing.page').then((m) => m.LandingPage),
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: '',
   },
 ];
