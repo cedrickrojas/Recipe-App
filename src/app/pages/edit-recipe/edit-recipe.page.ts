@@ -157,7 +157,7 @@ export class EditRecipePage {
         preparationTime: Number(value.preparationTime),
       });
 
-      await this.showToast('♡ Recipe updated successfully!', 'medium');
+      await this.showToast('Recipe updated successfully!', 'medium');
       this.router.navigate(['/recipe', recipeId]);
     } catch (error) {
       await this.showToast(this.recipeService.friendlyErrorMessage(error), 'danger');

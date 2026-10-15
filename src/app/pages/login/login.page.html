@@ -1,14 +1,15 @@
 <ion-content class="page-content" [fullscreen]="true">
   <div class="auth-wrapper">
+    <a class="auth-back" routerLink="/">← Back to home</a>
     <div class="auth-hero">
-      <div class="auth-heart"><ion-icon name="heart"></ion-icon></div>
-      <h1 class="auth-title">My Recipe Collection</h1>
-      <p class="auth-subtitle">Delicious recipes, made with love.</p>
+      <div class="auth-mark" aria-hidden="true">RF</div>
+      <h1 class="auth-title">My Recipe Finder</h1>
+      <p class="auth-subtitle">Your next favorite meal starts here.</p>
     </div>
 
     <form class="auth-card soft-card" [formGroup]="form" (ngSubmit)="login()">
-      <h2 class="auth-form-title">Welcome back ♡</h2>
-      <p class="auth-form-subtitle">Sign in to your recipe journal.</p>
+      <h2 class="auth-form-title">Welcome back</h2>
+      <p class="auth-form-subtitle">Log in to your Recipe Finder account.</p>
 
       <span class="field-label">Email</span>
       <ion-input
@@ -39,6 +40,7 @@
         autocomplete="current-password"
       >
         <ion-icon slot="start" name="lock-closed-outline" aria-hidden="true"></ion-icon>
+        <ion-input-password-toggle slot="end" color="primary"></ion-input-password-toggle>
       </ion-input>
       @if (password.invalid && password.touched) {
         <p class="field-error">
@@ -51,7 +53,7 @@
         @if (isSubmitting) {
           <ion-spinner name="dots"></ion-spinner>
         } @else {
-          ♡ Login
+          Login
         }
       </ion-button>
 

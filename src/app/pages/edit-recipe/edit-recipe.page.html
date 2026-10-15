@@ -8,14 +8,14 @@
 
 <ion-content class="page-content">
   <div class="hero-header">
-    <h1 class="hero-title">♡ Edit Recipe</h1>
+    <h1 class="hero-title">Edit Recipe</h1>
     <p class="hero-subtitle">Refine your delicious creation.</p>
   </div>
 
   @if (isLoading()) {
     <div class="loading-state">
       <ion-spinner name="crescent"></ion-spinner>
-      <p>♡ Loading your recipe...</p>
+      <p>Loading your recipe...</p>
     </div>
   } @else if (hasError()) {
     <div class="empty-state">
@@ -111,7 +111,7 @@
         @if (isSubmitting) {
           <ion-spinner name="dots"></ion-spinner>
         } @else {
-          ♡ Save Changes
+          Save Changes
         }
       </ion-button>
 

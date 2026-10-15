@@ -15,13 +15,13 @@ export const authGuard: CanActivateFn = () => {
   );
 };
 
-/** Keeps signed-in users off the login/register pages. */
+/** Sends signed-in users from the landing and authentication pages to the finder. */
 export const guestGuard: CanActivateFn = () => {
   const authService = inject(AuthService);
   const router = inject(Router);
 
   return authService.user$.pipe(
     take(1),
-    map((user) => (user ? router.createUrlTree(['/home']) : true))
+    map((user) => (user ? router.createUrlTree(['/finder']) : true))
   );
 };

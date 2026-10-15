@@ -1,0 +1,22 @@
+:host { display: block; }
+.search-hero { text-align: center; padding: 48px 32px 36px; margin: 24px 0 40px; border: 1px solid var(--recipe-border); border-radius: 8px; background: white; }
+.eyebrow { margin: 0 0 20px; color: var(--recipe-primary); font-size: 10px; letter-spacing: 1.8px; font-weight: 700; line-height: 1.7; }
+h1 { font-family: var(--recipe-font); font-size: clamp(32px, 4.5vw, 52px); font-weight: 800; letter-spacing: -1.8px; line-height: 1.15; margin: 0; color: var(--recipe-text); }
+em { font-style: normal; color: var(--recipe-primary); }
+.hero-description { color: var(--recipe-text-secondary); font-size: 14px; line-height: 1.9; margin: 22px 0 28px; }
+.search-form { display: flex; align-items: center; gap: 14px; max-width: 740px; margin: auto; background: var(--recipe-background); border: 1px solid #bdcbd6; border-radius: 6px; padding: 8px 8px 8px 18px; }
+.search-form:focus-within { outline: 2px solid var(--recipe-primary); outline-offset: 2px; }
+.search-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.search-symbol { color: var(--recipe-primary); font-size: 30px; line-height: 1; }
+input { flex: 1; min-width: 0; border: 0; outline: 0; color: var(--recipe-text); background: transparent; font: inherit; font-size: 15px; padding: 12px 0; }
+input::placeholder { color: var(--recipe-text-secondary); opacity: 1; }
+.search-submit { display: flex; align-items: center; gap: 24px; padding: 15px 23px; border: 0; border-radius: 4px; background: var(--recipe-primary); color: white; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+.search-submit:hover { background: var(--recipe-primary-dark); }
+.popular-searches { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin-top: 18px; color: var(--recipe-text-secondary); font-size: 11px; }
+.popular-searches > span { margin-right: 5px; }
+.popular-searches button { border: 1px solid var(--recipe-border); border-radius: 4px; background: white; color: var(--recipe-text-secondary); padding: 6px 12px; font: inherit; cursor: pointer; }
+.popular-searches button:hover { border-color: var(--recipe-primary); color: var(--recipe-primary); }
+button:focus-visible { outline: 3px solid var(--recipe-primary); outline-offset: 3px; }
+.catalog-note { margin: 22px 0 0; color: var(--recipe-text-secondary); font-size: 11px; line-height: 1.8; }
+@media (max-width: 760px) { .search-hero { padding: 32px 18px 26px; margin: 18px 0 30px; } h1 { font-size: 36px; letter-spacing: -1.2px; } .wide-only { display: none; } .search-form { gap: 9px; padding-left: 10px; } input { font-size: 16px; } .search-submit { padding: 14px 15px; } .search-submit span { display: none; } .hero-description { font-size: 13px; } }
+@media (max-width: 380px) { .search-hero { padding-inline: 14px; } h1 { font-size: 32px; } .search-symbol { display: none; } .search-submit { padding-inline: 12px; } }

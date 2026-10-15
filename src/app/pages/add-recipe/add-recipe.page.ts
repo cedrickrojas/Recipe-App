@@ -101,7 +101,7 @@ export class AddRecipePage {
         preparationTime: Number(value.preparationTime),
       });
 
-      await this.showToast('♡ Recipe saved successfully!', 'medium');
+      await this.showToast('Recipe saved successfully!', 'medium');
       this.router.navigateByUrl('/home');
     } catch (error) {
       await this.showToast(this.recipeService.friendlyErrorMessage(error), 'danger');

@@ -86,7 +86,7 @@
 }
 
 .recipe-card-name {
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--recipe-font);
   font-weight: 700;
   font-size: 1.05rem;
   color: var(--recipe-text);

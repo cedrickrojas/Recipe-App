@@ -1,39 +1,16 @@
 :host { display: block; }
-
-.hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 12px; padding-block: 55px 70px; min-height: 650px; }
-.hero .eyebrow { display: flex; align-items: center; gap: 10px; }
-.hero .eyebrow span { font-size: 20px; }
-.hero-description { max-width: 410px; color: var(--muted); margin: 26px 0 27px; font-size: 13px; line-height: 1.9; }
-.hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; }
-.hero-note { color: var(--muted); font-size: 10px; margin-top: 17px; }
-.hero-note span { color: var(--rose); margin-right: 5px; }
-.hero-art { position: relative; height: 500px; min-width: 0; }
-.art-circle { position: absolute; width: 420px; height: 420px; max-width: 92%; background: #f6e9de; border-radius: 50%; left: 8%; top: 42px; }
-.art-note { position: absolute; right: 28px; top: -7px; line-height: 1.35; font-size: 18px; transform: rotate(8deg); }
-.art-note span { display: inline-block; font-size: 30px; margin-left: 5px; }
-.photo-card { position: absolute; background: white; padding: 11px 11px 14px; border: 1px solid #eee7df; box-shadow: 0 13px 28px #4f382019; }
-.photo-card img { display: block; width: 100%; object-fit: cover; }
-.pancake-card { width: 57%; top: 50px; left: 3%; transform: rotate(-8deg); z-index: 2; }
-.pancake-card img { height: 248px; }
-.photo-caption { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-family: Georgia, serif; font-size: 16px; margin: 12px 3px 0; line-height: 1.4; }
-.pink-heart { color: var(--rose); font-size: 24px; }
-.photo-meta { display: block; color: var(--muted); font-size: 8px; margin: 5px 3px 0; }
-.photo-meta span { margin: 0 5px; }
-.tape { position: absolute; width: 90px; height: 28px; background: #e8b8b590; top: -13px; left: 30%; transform: rotate(4deg); }
-.pasta-card { width: 42%; top: 102px; right: -2%; transform: rotate(9deg); }
-.pasta-card img { height: 174px; }
-.pasta-card .photo-caption, .cookie-card .photo-caption { font-size: 12px; }
-.cookie-card { width: 42%; bottom: 12px; right: 7%; transform: rotate(5deg); z-index: 3; }
-.cookie-card img { height: 155px; }
-.favorite-sticker { position: absolute; z-index: 4; left: 2%; bottom: 30px; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 99px; height: 99px; border-radius: 50%; background: #edced4; outline: 1px dashed #a9405960; outline-offset: -7px; font-size: 8px; line-height: 1.4; letter-spacing: 1.3px; transform: rotate(-14deg); }
-.favorite-sticker span { font-size: 30px; line-height: 1.2; color: var(--rose); }
-.art-sparkle { position: absolute; font-size: 48px; color: var(--rose); right: 0; bottom: 2px; }
-.sample-label { position: absolute; bottom: -24px; left: 23%; color: var(--muted); font-size: 9px; }
-@media (min-width: 1450px) { .hero { padding-block: 75px 90px; } }
-@media (max-width: 1100px) { .hero { gap: 0; } .hero-art { height: 450px; } .pancake-card img { height: 220px; } .pasta-card img { height: 145px; } .cookie-card img { height: 130px; } .art-note { right: 0; font-size: 16px; } .art-circle { height: 350px; top: 55px; } .pancake-card { top: 60px; } .hero-actions { gap: 12px; } .hero-actions .button { padding: 14px 16px; gap: 14px; }
-}
-@media (max-width: 800px) { .hero { grid-template-columns: 1fr; padding-block: 40px 55px; gap: 40px; } .hero-copy { text-align: center; } .hero .eyebrow { justify-content: center; font-size: 8px; } .hero-description { margin-inline: auto; } .hero-actions { justify-content: center; } .hero-art { width: min(500px, 100%); height: 470px; margin-inline: auto; } .pancake-card img { height: 240px; } .pasta-card img { height: 170px; } .cookie-card img { height: 150px; } .art-circle { height: 390px; } .pasta-card { right: 1%; } .art-sparkle { right: 3%; }
-}
-@media (max-width: 520px) {
-  .hero-art { height: 385px; } .art-circle { height: 300px; top: 45px; } .pancake-card { width: 58%; top: 47px; left: 2%; padding: 8px; } .pancake-card img { height: 185px; } .photo-caption { font-size: 12px; margin-top: 8px; } .photo-meta { font-size: 6px; margin-top: 2px; } .pasta-card { top: 90px; padding: 8px; } .pasta-card img { height: 125px; } .pasta-card .photo-caption, .cookie-card .photo-caption { font-size: 10px; } .cookie-card { right: 8%; bottom: 10px; padding: 8px; } .cookie-card img { height: 115px; } .favorite-sticker { width: 78px; height: 78px; font-size: 6px; bottom: 27px; } .art-note { font-size: 14px; right: 10px; } .art-sparkle { font-size: 35px; } .sample-label { left: 15%; font-size: 8px; }
-}
+.hero { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 56px; padding-block: 76px 86px; }
+.hero-description { max-width: 470px; color: var(--recipe-muted-light); font-size: 15px; line-height: 1.9; margin: 26px 0 30px; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; }
+.hero-note { color: var(--recipe-muted-light); font-size: 12px; line-height: 1.8; margin: 24px 0 0; }
+.hero-art { min-width: 0; border: 1px solid #314052; border-radius: 8px; overflow: hidden; background: var(--recipe-navy); }
+.photo-frame { aspect-ratio: 1.12; overflow: hidden; }
+img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.photo-caption { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px; }
+.photo-label { display: block; color: var(--recipe-accent); font-size: 9px; letter-spacing: 1.7px; font-weight: 700; margin-bottom: 10px; }
+.photo-caption strong { font-size: 18px; font-weight: 600; letter-spacing: -.4px; }
+.photo-arrow { font-size: 26px; color: var(--recipe-accent); }
+.hero-details { display: flex; flex-wrap: wrap; gap: 12px 18px; padding: 17px 24px; border-top: 1px solid #314052; color: var(--recipe-muted-light); font-size: 10px; }
+@media (max-width: 1100px) { .hero { gap: 32px; } .photo-frame { aspect-ratio: .95; } }
+@media (max-width: 800px) { .hero { grid-template-columns: 1fr; gap: 38px; padding-block: 48px; } .hero-description { max-width: 560px; } .photo-frame { aspect-ratio: 1.45; } .hero-art { max-width: 580px; width: 100%; } }
+@media (max-width: 420px) { .hero-actions { align-items: flex-start; flex-direction: column; } .hero-actions .button { width: 100%; } .photo-caption { padding: 20px; } .photo-caption strong { font-size: 16px; } .hero-details { padding: 16px 20px; gap: 10px 14px; } }

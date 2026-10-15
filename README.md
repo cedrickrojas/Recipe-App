@@ -1,11 +1,16 @@
-# My Recipe Collection ♡
+# My Recipe Finder
 
-*Delicious recipes, made with love.*
+*Find a dish. Gather the ingredients. Make something delicious.*
 
-A feminine, elegant, pink-themed recipe journal built with **Ionic 9 + Angular 22 (standalone) + Firebase (Auth + Firestore)**. Every recipe you add is saved to your own Firestore account and only you can see it.
+A navy-and-teal recipe finder built with **Ionic 9 + Angular 22 (standalone) + Firebase (Auth + Firestore)**. Visitors first see a landing page with login and signup links. After authentication, Recipe Finder searches a built-in catalog of 30 recipes, with 10 each for Dinner, Lunch, and Breakfast, and displays ingredients, estimated cooking time, servings, and step-by-step instructions. A separate collection keeps the recipes you add in your own Firestore account.
 
 ## Features
 
+- A dedicated public landing page, with login/signup before accessing Recipe Finder
+- Professional navy, slate, and teal styling with locally hosted Inter typography (license in `src/assets/fonts/OFL.txt`)
+- Recipe search by dish name, Filipino alias, or ingredient, with category filters
+- Complete cooking guides and ingredient checklists, with no external recipe API required
+- A catalog of 30 dishes, with 10 Dinner, 10 Lunch, and 10 Breakfast recipes, all with photos
 - Email/password sign up, sign in, sign out (Firebase Authentication)
 - Create, view, edit, and delete recipes — all persisted to Cloud Firestore in real time
 - Live search (by name/category) combined with category filter chips
@@ -41,7 +46,7 @@ src/
 ├── environments/
 │   ├── environment.ts                # Firebase config (dev) — fill this in
 │   └── environment.prod.ts           # Firebase config (prod) — fill this in
-└── theme/variables.scss              # Pink color palette / design tokens
+└── theme/variables.scss              # Navy, slate, and teal design tokens
 
 firestore.rules                        # Firestore security rules (owner-only access)
 firestore.indexes.json                 # Composite index required by the recipes query
@@ -94,10 +99,12 @@ ionic serve
 
 ## 3. Try it out
 
-1. Open the app — you'll land on **Login**. Tap "Create one" to register with an email + password.
-2. You're taken to **Home**, empty at first — tap the pink **+** button (or "Add Recipe") to create your first recipe.
-3. Fill in the name, category, ingredients (one per line), instructions, and prep time, then **♡ Save Recipe**.
-4. Back on Home, use the search bar or category chips to filter, tap a card to see full **Recipe Details**, or use the pencil/trash icons to edit or delete.
+1. Open the app to the **landing page**, then choose **Log in** or **Sign up**.
+2. After authentication, **Recipe Finder** opens at `/finder`. Search for a dish such as `adobong manok`, `sinigang`, or `pasta`.
+3. Select a matching dish to see its ingredients, estimated total time, servings, and cooking steps. Check off ingredients as you gather them.
+4. Use **Log out** to end your session and return to the landing page. Direct access to `/finder` requires authentication.
+
+See [the recipe finder guide](docs/recipe-finder.md) for catalog expansion and behavior details.
 5. Sign out from the icon in the top-right corner of Home.
 
 Everything you do here writes to your Firestore `recipes` collection — open the Firebase console's Firestore tab to watch documents appear/update/disappear live.

@@ -1,80 +1,16 @@
-.auth-wrapper {
-  max-width: 420px;
-  margin: 0 auto;
-  padding: 40px 20px 32px;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.auth-hero {
-  text-align: center;
-  margin-bottom: 24px;
-}
-
-.auth-heart {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 12px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--recipe-accent-pink), var(--recipe-primary));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--recipe-shadow-medium);
-
-  ion-icon {
-    font-size: 1.8rem;
-    color: #ffffff;
-  }
-}
-
-.auth-title {
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--recipe-primary-dark);
-  margin: 0;
-}
-
-.auth-subtitle {
-  color: var(--recipe-text-secondary);
-  font-size: 0.9rem;
-  margin: 6px 0 0;
-}
-
-.auth-card {
-  padding: 28px 22px 24px;
-}
-
-.auth-form-title {
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: var(--recipe-text);
-  margin: 0 0 4px;
-}
-
-.auth-form-subtitle {
-  color: var(--recipe-text-secondary);
-  font-size: 0.85rem;
-  margin: 0;
-}
-
-ion-button {
-  margin-top: 26px;
-}
-
-.auth-switch {
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--recipe-text-secondary);
-  margin-top: 18px;
-
-  a {
-    color: var(--recipe-primary);
-    font-weight: 600;
-    text-decoration: none;
-  }
-}
+.auth-wrapper { max-width: 460px; margin: 0 auto; padding: 36px 20px 48px; min-height: 100%; display: flex; flex-direction: column; justify-content: center; font-family: var(--recipe-font); }
+.auth-back { display: inline-flex; align-self: flex-start; color: var(--recipe-text-secondary); text-decoration: none; font-size: 13px; font-weight: 500; margin-bottom: 32px; }
+.auth-back:hover { color: var(--recipe-primary); }
+.auth-hero { text-align: center; margin-bottom: 28px; }
+.auth-mark { display: grid; place-items: center; width: 48px; height: 48px; margin: 0 auto 18px; background: var(--recipe-navy); color: var(--recipe-accent); border-radius: 6px; font-size: 18px; font-weight: 800; letter-spacing: -1px; }
+.auth-title { font-family: var(--recipe-font); font-size: 23px; font-weight: 750; letter-spacing: -.7px; margin: 0 0 10px; color: var(--recipe-text); }
+.auth-subtitle { margin: 0; font-size: 13px; color: var(--recipe-text-secondary); line-height: 1.7; }
+.auth-card { padding: 28px; border: 1px solid var(--recipe-border); border-top: 3px solid var(--recipe-navy); }
+.auth-form-title { font-size: 21px; font-weight: 700; letter-spacing: -.6px; margin: 0 0 8px; color: var(--recipe-text); }
+.auth-form-subtitle { font-size: 12px; line-height: 1.8; color: var(--recipe-text-secondary); margin: 0 0 20px; }
+.btn-primary-pink { margin: 26px 0 0; min-height: 48px; }
+.auth-switch { text-align: center; font-size: 12px; color: var(--recipe-text-secondary); line-height: 1.9; margin: 24px 0 0; }
+.auth-switch a { color: var(--recipe-primary); font-weight: 650; text-decoration: none; margin-left: 4px; }
+a:focus-visible { outline: 3px solid var(--recipe-primary); outline-offset: 4px; }
+ion-icon { color: var(--recipe-text-secondary); }
+@media (max-width: 380px) { .auth-wrapper { padding-inline: 16px; } .auth-card { padding: 24px 20px; } }

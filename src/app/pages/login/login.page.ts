@@ -5,13 +5,14 @@ import { Router, RouterLink } from '@angular/router';
 import {
   IonContent,
   IonInput,
+  IonInputPasswordToggle,
   IonButton,
   IonIcon,
   IonSpinner,
   ToastController,
 } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { heart, mailOutline, lockClosedOutline } from 'ionicons/icons';
+import { mailOutline, lockClosedOutline } from 'ionicons/icons';
 
 import { AuthService } from '../../services/auth.service';
 
@@ -19,7 +20,7 @@ import { AuthService } from '../../services/auth.service';
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, IonContent, IonInput, IonButton, IonIcon, IonSpinner],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, IonContent, IonInput, IonInputPasswordToggle, IonButton, IonIcon, IonSpinner],
 })
 export class LoginPage {
   private fb = inject(FormBuilder);
@@ -35,7 +36,7 @@ export class LoginPage {
   });
 
   constructor() {
-    addIcons({ heart, mailOutline, lockClosedOutline });
+    addIcons({ mailOutline, lockClosedOutline });
   }
 
   get email() {
@@ -57,7 +58,7 @@ export class LoginPage {
 
     try {
       await this.authService.login(email, password);
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/finder');
     } catch (error) {
       await this.showToast(this.authService.friendlyErrorMessage(error));
     } finally {

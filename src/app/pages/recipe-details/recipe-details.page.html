@@ -18,14 +18,14 @@
 
 <ion-content class="page-content">
   <div class="hero-header">
-    <h1 class="hero-title">♡ Recipe Details</h1>
+    <h1 class="hero-title">Recipe Details</h1>
   </div>
 
   <div class="content-wrapper">
     @if (isLoading()) {
       <div class="loading-state">
         <ion-spinner name="crescent"></ion-spinner>
-        <p>♡ Loading your recipe...</p>
+        <p>Loading your recipe...</p>
       </div>
     } @else if (hasError()) {
       <div class="empty-state">
@@ -52,7 +52,7 @@
       <div class="recipe-icon-banner">{{ getCategoryIcon(r.category) }}</div>
 
       <section class="soft-card detail-section">
-        <h2 class="detail-heading">♡ Ingredients</h2>
+        <h2 class="detail-heading">Ingredients</h2>
         <ul class="ingredient-list">
           @for (ingredient of r.ingredients; track ingredient) {
             <li>
@@ -64,7 +64,7 @@
       </section>
 
       <section class="soft-card detail-section">
-        <h2 class="detail-heading">♡ How to Make It</h2>
+        <h2 class="detail-heading">How to Make It</h2>
         <ol class="step-list">
           @for (step of instructionSteps(r); track $index) {
             <li>

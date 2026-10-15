@@ -1,0 +1,8 @@
+<header class="finder-header">
+  <a class="finder-brand" routerLink="/finder" aria-label="My Recipe Finder home"><span class="brand-mark" aria-hidden="true">RF</span><span>MY RECIPE<small>FIND · COOK · ENJOY</small></span></a>
+  <nav aria-label="Main navigation">
+    <a class="current" routerLink="/finder" aria-current="page">Recipe finder</a>
+    <button class="auth-button" type="button" (click)="logout()" [disabled]="isLoggingOut()">{{ isLoggingOut() ? 'Logging out…' : 'Log out' }}</button>
+  </nav>
+</header>
+@if (logoutError()) {<p class="auth-error" role="alert">{{ logoutError() }}</p>}

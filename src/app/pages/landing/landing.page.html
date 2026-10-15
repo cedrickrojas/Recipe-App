@@ -1,58 +1,23 @@
 <ion-content class="landing-content" [fullscreen]="true">
   <div class="landing">
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#landing-main">Skip to content</a>
     <header class="site-header shell">
-      <a class="brand" routerLink="/" aria-label="My Recipe Collection home">
-        <span class="brand-mark" aria-hidden="true">♡</span>
-        <span>my recipe<span class="brand-second">collection</span></span>
-      </a>
-      <button class="menu-toggle" type="button" (click)="menuOpen.set(!menuOpen())" [attr.aria-expanded]="menuOpen()" aria-controls="main-navigation" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="main-navigation" aria-label="Main navigation" [class.is-open]="menuOpen()">
-        <button type="button" (click)="scrollTo('why-youll-love-it')">Why you’ll love it</button>
-        <button type="button" (click)="scrollTo('a-taste')">Take a peek</button>
-        <a routerLink="/login" class="login-link">Log in</a>
-        <a routerLink="/register" class="button button-small">Start your collection <span aria-hidden="true">↗</span></a>
-      </nav>
+      <a class="brand" routerLink="/" aria-label="My Recipe Finder landing page"><span class="brand-mark" aria-hidden="true">RF</span><span>MY RECIPE<span class="brand-second">FINDER</span></span></a>
+      <nav aria-label="Main navigation"><a class="login-link" routerLink="/login">Log in</a><a class="button button-small" routerLink="/register">Sign up <span aria-hidden="true">↗</span></a></nav>
     </header>
 
-    <main id="main" tabindex="-1">
-      <app-landing-hero (sectionRequested)="scrollTo($event)" />
-
-      <div class="benefit-strip" aria-label="Collection benefits">
-        <div class="shell"><span><span aria-hidden="true">♡</span> Made for your favorites</span><span class="strip-star" aria-hidden="true">✧</span><span><span aria-hidden="true">▤</span> Beautifully organized</span><span class="strip-star" aria-hidden="true">✧</span><span><span aria-hidden="true">⌕</span> Easy to find, easy to love</span><span class="strip-star" aria-hidden="true">✧</span><span><span aria-hidden="true">♧</span> More joy in the kitchen</span></div>
-      </div>
-
-      <section id="why-youll-love-it" class="benefits shell section-space" aria-labelledby="benefits-heading">
-        <div class="section-heading"><p class="eyebrow">LESS SCROLLING. MORE SIMMERING.</p><h2 id="benefits-heading">Your kitchen deserves<br />a little <em>less chaos.</em></h2><p>No more lost notes or “where did I put that recipe?”<br class="desktop-break" /> Just the recipes you love, right where you need them.</p></div>
-        <div class="benefit-grid">
-          <article class="benefit"><span class="feature-icon" aria-hidden="true">♡</span><span class="feature-number">01</span><h3>Keep every keeper.</h3><p>Give family classics and new discoveries a home. Add ingredients, instructions, and prep time in one simple place.</p></article>
-          <article class="benefit"><span class="feature-icon" aria-hidden="true">▤</span><span class="feature-number">02</span><h3>A place for every craving.</h3><p>From breakfast to dessert, organize your recipes by category. Your collection stays as tidy as you wish your kitchen was.</p></article>
-          <article class="benefit"><span class="feature-icon" aria-hidden="true">⌕</span><span class="feature-number">03</span><h3>Find it. Make it. Love it.</h3><p>Search by recipe name or category and get straight to the good part. Less hunting for dinner. More enjoying it.</p></article>
-        </div>
+    <main id="landing-main" tabindex="-1">
+      <app-landing-hero />
+      <section class="how-it-works shell section-space" aria-labelledby="how-heading">
+        <div class="section-heading"><p class="eyebrow">A LITTLE HELP IN THE KITCHEN</p><h2 id="how-heading">From craving to cooking.<br /><em>Three simple steps.</em></h2><p>Ang susunod mong masarap na luto, mas madaling simulan.</p></div>
+        <ol class="steps-grid">
+          <li><span class="step-number">01</span><h3>Make yourself at home.</h3><p>Mag-sign up o mag-log in para makapasok sa Recipe Finder.</p></li>
+          <li><span class="step-number">02</span><h3>Find something delicious.</h3><p>Hanapin ang gusto mong lutuin gamit ang dish name o ingredient.</p></li>
+          <li><span class="step-number">03</span><h3>Gather. Cook. Enjoy.</h3><p>Ihanda ang mga sangkap at sundan ang step-by-step cooking instructions.</p></li>
+        </ol>
       </section>
-
-      <app-landing-collection [recipes]="recipes" (recipeSelected)="openRecipe($event)" />
-
-      <section id="how-it-works" class="how-section shell section-space" aria-labelledby="how-heading">
-        <div><p class="eyebrow">FROM “I SHOULD SAVE THIS” TO SUPPER</p><h2 id="how-heading">Your next favorite ritual.<br /><em>In three little steps.</em></h2><p>A recipe journal that’s easy to start<br />and a joy to come back to.</p><a class="text-link" routerLink="/register">Let’s make something delicious <span aria-hidden="true">↗</span></a></div>
-        <ol class="steps"><li><span class="step-number">1</span><div><h3>Make yourself at home</h3><p>Create an account for your personal recipe collection.</p></div></li><li><span class="step-number">2</span><div><h3>Add a recipe you love</h3><p>A name, a few ingredients, and the steps that make it special.</p></div></li><li><span class="step-number">3</span><div><h3>Come back for seconds</h3><p>Search, cook, and update your favorites whenever inspiration strikes.</p></div></li></ol>
-      </section>
-
-      <section class="faq-section shell" aria-labelledby="faq-heading"><div><p class="eyebrow">A FEW THINGS YOU MIGHT BE WONDERING</p><h2 id="faq-heading">Good questions.<br /><em>Simple answers.</em></h2></div><div class="faq-list"><details><summary>What can I save in my collection?<span aria-hidden="true">+</span></summary><p>Add a recipe name, category, ingredients, instructions, and preparation time. You can edit your recipes as you make them your own.</p></details><details><summary>Do I need an account?<span aria-hidden="true">+</span></summary><p>Yes. Create an account with your email and password to save and access your personal collection.</p></details><details><summary>Can I use it on my phone?<span aria-hidden="true">+</span></summary><p>Absolutely. Your collection works in your phone’s browser, so you can keep the ingredients and instructions close while you cook.</p></details><details><summary>Is this a collection of recipes to browse?<span aria-hidden="true">+</span></summary><p>This is a home for your own recipes. The sample collection above gives you a taste of the possibilities; your personal collection begins with the recipes you add.</p></details></div></section>
-
-      <section class="final-cta shell" aria-labelledby="cta-heading"><span class="cta-heart" aria-hidden="true">♡</span><p class="eyebrow">SOMETHING DELICIOUS STARTS HERE</p><h2 id="cta-heading">Make room for<br /><em>your favorites.</em></h2><p>The recipes you keep today become the memories you make tomorrow.</p><a class="button" routerLink="/register">Start my recipe collection <span aria-hidden="true">↗</span></a><span class="handwritten cta-note">made with love, saved for later</span></section>
+      <section class="final-cta shell" aria-labelledby="start-heading"><p class="eyebrow">SOMETHING DELICIOUS STARTS HERE</p><h2 id="start-heading">Ready na sa<br /><em>susunod mong luto?</em></h2><p>Create an account to open Recipe Finder and discover what to cook next.</p><a class="button" routerLink="/register">Create an account <span aria-hidden="true">↗</span></a><p class="existing-account">May account ka na? <a routerLink="/login">Log in</a></p></section>
     </main>
-
-    <footer class="site-footer shell"><a class="brand footer-brand" routerLink="/"><span class="brand-mark" aria-hidden="true">♡</span><span>my recipe<span class="brand-second">collection</span></span></a><p>A little love in every recipe.</p><div><button type="button" (click)="scrollTo('why-youll-love-it')">Why you’ll love it</button><a routerLink="/login">Log in</a><a routerLink="/register">Get started <span aria-hidden="true">↗</span></a></div><small>© 2026 My Recipe Collection. Made for the love of food.</small></footer>
-
-  <dialog #recipeDialog class="recipe-dialog" aria-labelledby="sample-title" (click)="$event.target === recipeDialog && closeRecipe()">
-    @if (selectedRecipe(); as recipe) {
-      <button class="dialog-close" type="button" (click)="closeRecipe()" aria-label="Close recipe" autofocus>×</button>
-      <img class="dialog-image" [src]="'assets/landing/' + recipe.image + '.jpg'" [alt]="recipe.name" width="850" height="567" />
-      <div class="dialog-body"><p class="eyebrow">SAMPLE RECIPE · {{ recipe.category }} · {{ recipe.time }} MIN</p><h2 id="sample-title">{{ recipe.name }}</h2><p>{{ recipe.description }}</p><h3>What you’ll need</h3><ul>@for (ingredient of recipe.ingredients; track ingredient) {<li>{{ ingredient }}</li>}</ul><h3>Let’s make it</h3><ol>@for (step of recipe.steps; track step) {<li>{{ step }}</li>}</ol><a class="button" routerLink="/register" (click)="closeRecipe()">Create a collection of your own <span aria-hidden="true">↗</span></a></div>
-    }
-  </dialog>
+    <footer class="site-footer shell"><span>My Recipe Finder</span><p>Good food starts with a clear plan.</p><div><a routerLink="/login">Log in</a><a routerLink="/register">Sign up</a></div></footer>
   </div>
 </ion-content>

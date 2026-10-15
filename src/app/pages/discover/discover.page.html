@@ -1,0 +1,33 @@
+<ion-content class="finder-content" [fullscreen]="true">
+  <div class="finder-shell">
+    <app-finder-header />
+
+    <main>
+      <app-recipe-search [query]="query()" [recipeCount]="recipeCount" (queryChange)="query.set($event)" (submitted)="submitSearch()" (popularPicked)="searchFor($event)" />
+
+      <section id="recipe-results" class="finder-results" tabindex="-1" aria-labelledby="results-heading">
+        <div class="results-heading"><div><p class="eyebrow">FIND SOMETHING DELICIOUS</p><h2 id="results-heading">{{ query().trim() ? 'Search results' : 'What’s cooking?' }}</h2></div><p aria-live="polite" role="status">{{ results().length }} {{ results().length === 1 ? 'recipe' : 'recipes' }} found</p></div>
+        <div class="finder-categories" aria-label="Filter recipes by category">@for (item of categories; track item) {<button type="button" [class.active]="category() === item" [attr.aria-pressed]="category() === item" (click)="category.set(item)">{{ item === 'All' ? 'All recipes' : item }}</button>}</div>
+
+        @if (results().length) {
+          <div class="finder-layout">
+            <div class="recipe-list" aria-label="Recipes">
+              @for (recipe of results(); track recipe.id) {
+                <button class="recipe-result" type="button" [class.is-selected]="selectedRecipe()?.id === recipe.id" [attr.aria-pressed]="selectedRecipe()?.id === recipe.id" (click)="selectRecipe(recipe.id)">
+                  <span class="recipe-thumbnail" aria-hidden="true"><img [src]="recipe.photo.thumbnail" alt="" width="72" height="72" loading="lazy" decoding="async" /></span>
+                  <span class="result-copy"><span class="result-meta">{{ recipe.category }} · ~{{ recipe.timeMinutes }} min</span><strong>{{ recipe.name }}</strong><span class="result-ingredients">{{ recipe.ingredients.length }} ingredients · {{ recipe.servings }} servings</span></span>
+                  <span class="result-arrow" aria-hidden="true">↗</span>
+                </button>
+              }
+              <p class="list-hint">Pumili ng recipe para makita ang ingredients at paraan ng pagluto.</p>
+            </div>
+            <div id="cooking-details" class="cooking-details" tabindex="-1">@if (selectedRecipe(); as recipe) {<app-cooking-guide [recipe]="recipe" (backRequested)="scrollTo('recipe-results')" />}</div>
+          </div>
+        } @else {
+          <div class="no-recipes" role="status"><span aria-hidden="true">🍲</span><h3>Wala pang recipe na tugma.</h3><p>Subukan ang “adobo”, “chicken”, o ibang category.<br />This starter catalog includes {{ recipeCount }} recipes; more dishes can be added.</p><button type="button" (click)="clearSearch()">Show all recipes <span aria-hidden="true">→</span></button></div>
+        }
+      </section>
+    </main>
+    <footer><span>My Recipe Finder</span><p>Find your recipe. Follow the steps. Make it yours.</p></footer>
+  </div>
+</ion-content>

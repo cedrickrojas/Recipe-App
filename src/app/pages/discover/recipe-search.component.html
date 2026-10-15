@@ -1,0 +1,13 @@
+      <section class="search-hero" aria-labelledby="finder-heading">
+        <p class="eyebrow">YOUR NEXT DELICIOUS IDEA STARTS HERE</p>
+        <h1 id="finder-heading">Ano’ng gusto mong <em>lutuin?</em></h1>
+        <p class="hero-description">Hanapin ang paborito mong ulam. Nandito na ang mga sangkap<br class="wide-only" /> at step-by-step instructions para makapagsimula ka.</p>
+        <form class="search-form" role="search" (submit)="submitSearch($event)">
+          <label class="search-label" for="dish-search">Search a dish or ingredient</label>
+          <span class="search-symbol" aria-hidden="true">⌕</span>
+          <input id="dish-search" name="q" type="search" maxlength="120" placeholder="Try chicken adobo, sinigang, or pasta…" autocomplete="off" [value]="query()" (input)="onSearchInput($event)" />
+          <button class="search-submit" type="submit">Search <span aria-hidden="true">→</span></button>
+        </form>
+        <div class="popular-searches"><span>Popular:</span>@for (dish of popularSearches; track dish) {<button type="button" (click)="popularPicked.emit(dish)">{{ dish }}</button>}</div>
+        <p class="catalog-note">{{ recipeCount() }} ready-to-cook recipes · Ingredients and cooking steps in one place</p>
+      </section>

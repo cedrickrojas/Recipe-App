@@ -154,7 +154,7 @@ export class HomePage {
   private async confirmDelete(id: string): Promise<void> {
     try {
       await this.recipeService.deleteRecipe(id);
-      await this.showToast('♡ Recipe removed from your collection.', 'medium');
+      await this.showToast('Recipe removed from your collection.', 'medium');
     } catch (error) {
       await this.showToast(this.recipeService.friendlyErrorMessage(error), 'danger');
     }

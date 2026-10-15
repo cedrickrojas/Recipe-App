@@ -1,66 +1,60 @@
-/*
- * My Recipe Collection — feminine pink theme.
- * Overrides Ionic's default (blue) design tokens with the app's palette.
- */
-
+/* Navy, slate, and teal design system. Legacy aliases support collection pages. */
 :root {
-  /* ---- Brand palette --------------------------------------------------- */
-  --recipe-primary: #e91e63;
-  --recipe-primary-dark: #ad1457;
-  --recipe-soft-pink: #f8bbd0;
-  --recipe-light-pink: #fce4ec;
-  --recipe-very-light-pink: #fff5f8;
-  --recipe-accent-pink: #ff80ab;
-  --recipe-white: #ffffff;
-  --recipe-text: #4a3a40;
-  --recipe-text-secondary: #8a737b;
-
-  /* ---- Ionic color: primary --------------------------------------------- */
-  --ion-color-primary: #e91e63;
-  --ion-color-primary-rgb: 233, 30, 99;
+  color-scheme: light;
+  --recipe-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --recipe-background: #f3f5f7;
+  --recipe-surface: #ffffff;
+  --recipe-surface-muted: #eaf0f4;
+  --recipe-border: #d5dde5;
+  --recipe-primary: #0f766e;
+  --recipe-primary-dark: #115e59;
+  --recipe-accent: #2dd4bf;
+  --recipe-navy: #102033;
+  --recipe-navy-deep: #0a1420;
+  --recipe-text: #142334;
+  --recipe-text-secondary: #526377;
+  --recipe-light-text: #f7fafc;
+  --recipe-muted-light: #a9b8c9;
+  --recipe-soft-pink: var(--recipe-border);
+  --recipe-light-pink: var(--recipe-surface-muted);
+  --recipe-very-light-pink: var(--recipe-background);
+  --recipe-accent-pink: var(--recipe-accent);
+  --recipe-white: var(--recipe-surface);
+  --ion-color-primary: #0f766e;
+  --ion-color-primary-rgb: 15, 118, 110;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #ad1457;
-  --ion-color-primary-tint: #ff80ab;
-
-  /* ---- Ionic color: secondary (dark pink) -------------------------------- */
-  --ion-color-secondary: #ad1457;
-  --ion-color-secondary-rgb: 173, 20, 87;
+  --ion-color-primary-shade: #0d6861;
+  --ion-color-primary-tint: #27847c;
+  --ion-color-secondary: #102033;
+  --ion-color-secondary-rgb: 16, 32, 51;
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #98123c;
-  --ion-color-secondary-tint: #b52d69;
-
-  /* ---- Ionic color: danger (kept close to the palette, still legible) --- */
-  --ion-color-danger: #d81b60;
-  --ion-color-danger-rgb: 216, 27, 96;
+  --ion-color-secondary-shade: #0e1c2d;
+  --ion-color-secondary-tint: #283648;
+  --ion-color-danger: #c2413b;
+  --ion-color-danger-rgb: 194, 65, 59;
   --ion-color-danger-contrast: #ffffff;
   --ion-color-danger-contrast-rgb: 255, 255, 255;
-  --ion-color-danger-shade: #be1854;
-  --ion-color-danger-tint: #dc3170;
-
-  /* ---- Ionic color: medium (secondary text) ------------------------------ */
-  --ion-color-medium: #8a737b;
-  --ion-color-medium-rgb: 138, 115, 123;
+  --ion-color-danger-shade: #ab3934;
+  --ion-color-danger-tint: #c8544f;
+  --ion-color-medium: #526377;
+  --ion-color-medium-rgb: 82, 99, 119;
   --ion-color-medium-contrast: #ffffff;
   --ion-color-medium-contrast-rgb: 255, 255, 255;
-  --ion-color-medium-shade: #796570;
-  --ion-color-medium-tint: #96818b;
-
-  /* ---- Base app tokens ---------------------------------------------------- */
-  --ion-background-color: #fff5f8;
-  --ion-background-color-rgb: 255, 245, 248;
-  --ion-text-color: #4a3a40;
-  --ion-text-color-rgb: 74, 58, 64;
+  --ion-color-medium-shade: #485769;
+  --ion-color-medium-tint: #637385;
+  --ion-background-color: #f3f5f7;
+  --ion-background-color-rgb: 243, 245, 247;
+  --ion-text-color: #142334;
+  --ion-text-color-rgb: 20, 35, 52;
   --ion-toolbar-background: #ffffff;
   --ion-item-background: #ffffff;
-  --ion-font-family: 'Poppins', 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-
-  /* ---- Shared radii/shadow tokens used across the app -------------------- */
-  --recipe-radius-input: 14px;
-  --recipe-radius-button: 14px;
-  --recipe-radius-card: 20px;
-  --recipe-radius-badge: 20px;
-  --recipe-shadow-soft: 0 6px 20px rgba(233, 30, 99, 0.08);
-  --recipe-shadow-medium: 0 10px 28px rgba(233, 30, 99, 0.14);
+  --ion-font-family: var(--recipe-font);
+  --recipe-radius-input: 6px;
+  --recipe-radius-button: 6px;
+  --recipe-radius-card: 8px;
+  --recipe-radius-badge: 4px;
+  --recipe-shadow-soft: 0 4px 16px rgba(16, 32, 51, .05);
+  --recipe-shadow-medium: 0 8px 24px rgba(16, 32, 51, .1);
 }

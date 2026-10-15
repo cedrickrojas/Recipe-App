@@ -1,5 +1,5 @@
 .recipe-name {
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--recipe-font);
   font-weight: 700;
   font-size: 1.6rem;
   color: var(--recipe-text);
@@ -38,7 +38,7 @@
 }
 
 .detail-heading {
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--recipe-font);
   font-weight: 700;
   font-size: 1.1rem;
   color: var(--recipe-primary-dark);
@@ -92,7 +92,7 @@
   background: var(--recipe-light-pink);
   color: var(--recipe-primary-dark);
   font-weight: 700;
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--recipe-font);
   font-size: 0.85rem;
   display: flex;
   align-items: center;

@@ -4,6 +4,11 @@ import { authGuard, guestGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
+    path: 'finder',
+    loadComponent: () => import('./pages/discover/discover.page').then((m) => m.DiscoverPage),
+    canActivate: [authGuard],
+  },
+  {
     path: 'login',
     loadComponent: () => import('./pages/login/login.page').then((m) => m.LoginPage),
     canActivate: [guestGuard],
@@ -37,6 +42,7 @@ export const routes: Routes = [
     path: '',
     pathMatch: 'full',
     loadComponent: () => import('./pages/landing/landing.page').then((m) => m.LandingPage),
+    canActivate: [guestGuard],
   },
   {
     path: '**',

@@ -1,4 +1,4 @@
-import { Component, output } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -7,6 +7,4 @@ import { RouterLink } from '@angular/router';
   templateUrl: './landing-hero.component.html',
   styleUrl: './landing-hero.component.scss',
 })
-export class LandingHeroComponent {
-  readonly sectionRequested = output<string>();
-}
+export class LandingHeroComponent {}
